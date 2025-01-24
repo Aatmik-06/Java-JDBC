@@ -2,7 +2,7 @@
 <web-app version="6.1" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_1.xsd">
     <servlet>
         <servlet-name>NewServlet</servlet-name>
-        <servlet-class>com.demo.controller.NewServlet</servlet-class>
+        <servlet-class>com.demo.controller.P1Controller</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>P2Controller</servlet-name>

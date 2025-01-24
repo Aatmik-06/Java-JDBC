@@ -15,7 +15,7 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author adi18
  */
-public class NewServlet extends HttpServlet {
+public class StudentAddController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,17 +34,10 @@ public class NewServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet NewServlet</title>");
+            out.println("<title>Servlet StudentAddController</title>");
             out.println("</head>");
             out.println("<body>");
-           
-            String f = request.getParameter("f");
-            String m = request.getParameter("m");
-            String l = request.getParameter("l");
-            
-            String name = f+" "+m+" "+l;
-            
-            out.println("<h1>Welcome "+name+"</h1>");
+            String enroll = request.getParameter("+enroll");
             out.println("</body>");
             out.println("</html>");
         }

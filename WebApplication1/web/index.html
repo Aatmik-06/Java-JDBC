@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+         <form action="NewServlet" method="post">
+       
+            <h1>Select Your Category</h1>
+            <label>
+                <input type="radio" name="cat" value="gen"> GEN
+            </label>
+            <label>
+                <input type="radio" name="cat" value="obc"> OBC
+            </label>
+            <label>
+                <input type="radio" name="cat" value="sc"> SC
+            </label>
+            <label>
+                <input type="radio" name="cat" value="st"> ST
+            </label>
+       
+       
+        
+         <h1>Select Your Hobbies</h1>
+            <label>
+                <input type="checkbox" name="hobby" value="Reading"> Reading
+            </label>
+            <label>
+                <input type="checkbox" name="hobby" value="Traveling"> Traveling
+            </label>
+            <label>
+                <input type="checkbox" name="hobby" value="Cooking"> Cooking
+            </label>
+         
+         
+            <h1>Select Your Country</h1>
+            <label for="course">Choose any course:</label>
+            <select name="course" id="course">
+                <option value="Btech">Btech</option>
+                <option value="Mtech">Mtech</option>
+                <option value="Bca">Bca</option>
+                <option value="Other">Other</option>
+            </select>
+
+ <h1>Select Your Country</h1>
+            <label for="skills">Choose Skills:</label>
+            <select name="skills" id="skills" multiple >
+                <option value="Java">Java</option>
+                <option value="C++">C++</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="React">React</option>
+            </select>
+              </br>
+              Your Address
+            <textarea name="address" rows="10" cols="50">
+                
+            </textarea>
+
+          <!-- Submit Button -->
+        <button type="submit">Submit</button>
+    </form>
+        
+    </body>
+</html>
