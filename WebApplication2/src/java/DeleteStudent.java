@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
-import com.ram.bean.StudentBean;
 import com.ram.dao.StudentDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,15 +10,12 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import static java.util.Collections.list;
-
 
 /**
  *
  * @author adi18
  */
-public class ViewStudent extends HttpServlet {
+public class DeleteStudent extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,45 +34,19 @@ public class ViewStudent extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ViewStudent</title>");
+            out.println("<title>Servlet DeleteStudent</title>");
             out.println("</head>");
             out.println("<body>");
-            
-            out.println("<table border='5' align='center'>");
-             out.println("<tr><th>SID</th>");
-                  out.println("<th>Name</th>");
-                  out.println("<th>Enroll</th>");
-                  out.println("<th>P</th>");
-                  out.println("<td>C</th>");
-                  out.println("<th>M</th>");
-                  out.println("<td>H</th>");
-                  out.println("<th>E</th>");
-                  out.println("<th>Per</th></tr>");
-                
-                  
-                  StudentDAO sd = new StudentDAO();
-                  ArrayList<StudentBean>list=sd.findAll();
-                  
-                  for (StudentBean sb:list){                  
-                 out.println("<tr>");
-                 out.println("<td>"+sb.getSid()+"</td>");
-                 out.println("<td>"+sb.getName()+"</td>");
-                 out.println("<td>"+sb.getEnroll()+"</td>");
-                  out.println("<td>"+sb.getP()+"</td>");
-                  out.println("<td>"+sb.getC()+"</td>");
-                  out.println("<td>"+sb.getM()+"</td>");
-                  out.println("<td>"+sb.getH()+"</td>");
-                  out.println("<td>"+sb.getE()+"</td>");
-                  out.println("<td>"+sb.getPer()+"</td>");
-                  out.println("<td>"+sb.getTotal()+"</td>");
-                  out.println("<td><a href='DeleteStudent?id="+sb.getSid()+"'>Delete</a></td>");
-                  out.println("</tr>");  
-                  }
-                   out.println(" <table/>");
-                        
+            int id = Integer.parseInt(request.getParameter("id"));
+            out.println("<h1>ID"+id+"</h1>");
+            StudentDAO sd = new StudentDAO();
+            int r=sd.deleteStudent(id);
+            if(r>0){
+                response.sendRedirect("ViewStudent");
+            }
+            out.println("");
             out.println("</body>");
             out.println("</html>");
-            
         }
     }
 

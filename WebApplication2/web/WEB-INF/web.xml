@@ -4,8 +4,16 @@
         <servlet-name>ViewStudent</servlet-name>
         <servlet-class>ViewStudent</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteStudent</servlet-name>
+        <servlet-class>DeleteStudent</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ViewStudent</servlet-name>
         <url-pattern>/ViewStudent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteStudent</servlet-name>
+        <url-pattern>/DeleteStudent</url-pattern>
     </servlet-mapping>
 </web-app>
