@@ -70,6 +70,7 @@ public class ViewStudent extends HttpServlet {
                   out.println("<td>"+sb.getPer()+"</td>");
                   out.println("<td>"+sb.getTotal()+"</td>");
                   out.println("<td><a href='DeleteStudent?id="+sb.getSid()+"'>Delete</a></td>");
+                  out.println("<td><a href='EditStudent?id="+sb.getSid()+"''>Edit</td>");
                   out.println("</tr>");  
                   }
                    out.println(" <table/>");

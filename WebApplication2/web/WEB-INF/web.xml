@@ -8,6 +8,14 @@
         <servlet-name>DeleteStudent</servlet-name>
         <servlet-class>DeleteStudent</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditStudent</servlet-name>
+        <servlet-class>EditStudent</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StudentUpdateController</servlet-name>
+        <servlet-class>StudentUpdateController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ViewStudent</servlet-name>
         <url-pattern>/ViewStudent</url-pattern>
@@ -15,5 +23,13 @@
     <servlet-mapping>
         <servlet-name>DeleteStudent</servlet-name>
         <url-pattern>/DeleteStudent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditStudent</servlet-name>
+        <url-pattern>/EditStudent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StudentUpdateController</servlet-name>
+        <url-pattern>/StudentUpdateController</url-pattern>
     </servlet-mapping>
 </web-app>

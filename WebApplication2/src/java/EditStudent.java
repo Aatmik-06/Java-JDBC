@@ -2,22 +2,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package com.demo.controller;
 
+import com.ram.bean.StudentBean;
+import com.ram.dao.StudentDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 
 /**
  *
  * @author adi18
  */
-import com.ram.bean.StudentBean;
-import com.ram.dao.StudentDAO;
-public class StudentAddController extends HttpServlet {
+public class EditStudent extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,43 +36,56 @@ public class StudentAddController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet StudentAddController</title>");
+            out.println("<title>Servlet EditStudent</title>");
             out.println("</head>");
             out.println("<body>");
-            String enroll = request.getParameter("enroll");
-            String name = request.getParameter("name");
-            int sid = Integer.parseInt(request.getParameter("sid"));
-            int p = Integer.parseInt(request.getParameter("p"));
-            int c = Integer.parseInt(request.getParameter("c"));
-            int m = Integer.parseInt(request.getParameter("m"));
-            int h = Integer.parseInt(request.getParameter("h"));
-            int e = Integer.parseInt(request.getParameter("e"));
-            out.println("<h1>SID " + sid + "</h1>");
-            out.println("<h1>ENROLL " + enroll + "</h1>");
-            out.println("<h1>NAME " + name + "</h1>");
-            out.println("<h1>P " + p + "</h1>");
-            out.println("<h1>C " + c + "</h1>");
-            out.println("<h1>M " + m + "</h1>");
-            out.println("<h1>H" + h + "</h1>");
-            out.println("<h1>E" + e + "</h1>");
-            StudentBean sb = new StudentBean();
-            sb.setC(c);
-            sb.setE(e);
-            sb.setEnroll(enroll);
-            sb.setH(h);
-            sb.setM(m);
-            sb.setName(name);
-            sb.setP(p);
-            sb.setSid(sid);
+            
+            int sid = Integer.parseInt(request.getParameter("id"));
             StudentDAO sd = new StudentDAO();
-            int r = sd.addStudent(sb);
-            if (r > 0) {
-                out.println("<h1><font color='green'>Student Addedsuccess</font > </h1>");
-                }
-            else{
-              out.println("<h1><font color='red'>Student Not Added </font></h1>");
-            }
-            out.println("<a href='ViewStudent'>Click Here For View All Students</a>");
+            StudentBean sb = sd.findById(sid);
+            
+
+               
+            out.println("<h1 align='center'>Student Registration Form</h1>");
+            out.println("<form action='StudentUpdateController'>");
+            out.println("<table align='center' border='1'");
+            out.println("<tr>");
+            out.println("<td>ENROLLMENT NO :</td>");
+            out.println("<td><input type='text' name='enroll' value='" + sb.getEnroll() + "'></td>");
+            out.println("</tr>");
+            out.println("<tr>");
+            out.println("<td>SID :</td>");
+            out.println("<td><input type='text' name='sid' value='" + sb.getSid() + "'></td>");
+            out.println("</tr>");
+            out.println("<tr>");
+            out.println("<td>NAME:</td>");
+            out.println(" <td><input type='text' name='name' value=" + sb.getName() + "></td>");
+            out.println("</tr>");
+            out.println("<tr>");
+            out.println("<td>P :</td>");
+            out.println("<td><input type='text' name='p' value='" + sb.getP() + "'></td>");
+            out.println(" </tr>");
+            out.println("<tr>");
+            out.println("<td>C :</td>");
+            out.println("<td><input type='text' name='c' value='" + sb.getC() + "'></td>");
+            out.println("</tr>");
+            out.println("<tr>");
+            out.println("<td>M :</td>");
+            out.println("<td><input type='text' name='m' value=" + sb.getM() + "></td>");
+            out.println("</tr>");
+            out.println("<tr>");
+            out.println("<td>H:</td>");
+            out.println(" <td><input type='text' name='h' value=" + sb.getH() + "></td>");
+            out.println(" </tr>");
+            out.println("<tr>");
+            out.println("<td>E :</td>");
+            out.println("<td><input type='text' name='e' value=" + sb.getE() + "></td>");
+            out.println(" </tr>");
+            out.println("<tr>");
+            out.println("<td colspan='2' align='center'><input type='submit' value='Update'></td>");
+            out.println(" </tr>");
+            out.println("</table>");
+            out.println("</form>");
             out.println("</body>");
             out.println("</html>");
         }

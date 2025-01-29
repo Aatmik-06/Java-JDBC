@@ -111,6 +111,43 @@ public class StudentDAO {
         return list;
     }
     
+    
+     public StudentBean findById(int id){ 
+         StudentBean x = new StudentBean(); 
+         conn=ConnectionPool.connectDB();
+
+        //step3:
+       String sql="select * from students where sid='"+id+"'";
+        //step4:
+
+        try {
+        Statement stmt = conn.createStatement();
+            //step5:
+        ResultSet rs = stmt.executeQuery(sql);
+        while(rs.next()){
+            
+          x.setC(rs.getInt("c"));
+          x.setP(rs.getInt("p"));
+          x.setM(rs.getInt("m"));
+          x.setH(rs.getInt("h"));
+          x.setE(rs.getInt("e"));
+          x.setTotal(rs.getInt("total"));
+          x.setPer(rs.getFloat("per"));
+          x.setEnroll(rs.getString("enroll"));
+          x.setSid(rs.getInt("sid"));
+          x.setName(rs.getString("name")); 
+       
+          
+         }
+              //step6:
+        conn.close();
+       
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return x;
+    }
+    
     public static void main(String[] args) {
 //        StudentBean s=new StudentBean();
 //        s.setC(67);
@@ -136,12 +173,23 @@ public class StudentDAO {
 //           System.out.println("Data not deleted");
 //       }
 
-          StudentDAO sd= new StudentDAO();
-          ArrayList<StudentBean> li = sd.findAll();
+
+//Find All 
+//          StudentDAO sd= new StudentDAO();
+//          ArrayList<StudentBean> li = sd.findAll();
+//          
+//          for(StudentBean sb:li){
+//           System.out.println("\t"+sb.getEnroll()+"\t"+sb.getName()+"\t"+sb.getSid()+"\t"+sb.getC()+"\t"+sb.getE()+"\t"+sb.getH()+"\t"+sb.getM()+"\t"+sb.getP()+"\t"+sb.getPer()+"\t"+sb.getTotal());
+//          }
+//          
           
-          for(StudentBean sb:li){
-           System.out.println("\t"+sb.getEnroll()+"\t"+sb.getName());
-          }
+          
+//Find by ID           
+          StudentDAO sd= new StudentDAO();
+          StudentBean sb = sd.findById(102);
+          
+           System.out.println("\t"+sb.getEnroll()+"\t"+sb.getName()+"\t"+sb.getSid()+"\t"+sb.getC()+"\t"+sb.getE()+"\t"+sb.getH()+"\t"+sb.getM()+"\t"+sb.getP()+"\t"+sb.getPer()+"\t"+sb.getTotal());
+          
           
     }
 }

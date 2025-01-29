@@ -4,8 +4,40 @@
         <servlet-name>StudentAddController</servlet-name>
         <servlet-class>com.demo.controller.StudentAddController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteStudent</servlet-name>
+        <servlet-class>com.demo.controller.DeleteStudent</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditStudent</servlet-name>
+        <servlet-class>com.demo.controller.EditStudent</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StudentUpdateController</servlet-name>
+        <servlet-class>com.demo.controller.StudentUpdateController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewStudent</servlet-name>
+        <servlet-class>com.demo.controller.ViewStudent</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>StudentAddController</servlet-name>
         <url-pattern>/StudentAddController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteStudent</servlet-name>
+        <url-pattern>/DeleteStudent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditStudent</servlet-name>
+        <url-pattern>/EditStudent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StudentUpdateController</servlet-name>
+        <url-pattern>/StudentUpdateController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewStudent</servlet-name>
+        <url-pattern>/ViewStudent</url-pattern>
     </servlet-mapping>
 </web-app>
